@@ -30,14 +30,6 @@ public class UnityServicesDemo : MonoBehaviour
         AddSignCallBack();
     }
 
-    void DoSomething()
-    {
-        Debug.Log(AuthenticationService.Instance.Profile);
-
-        Debug.Log($"Is SignedIn: {AuthenticationService.Instance.IsSignedIn}");
-        Debug.Log($"Is Authorized: {AuthenticationService.Instance.IsAuthorized}");
-        Debug.Log($"Is Expired: {AuthenticationService.Instance.IsExpired}");
-    }
     /// <summary>
     /// 添加登录响应事件
     /// </summary>
@@ -54,8 +46,6 @@ public class UnityServicesDemo : MonoBehaviour
             DoSomething();
         };
 
-
-
         AuthenticationService.Instance.SignInFailed += (err) =>
         {
             Debug.LogError(err);
@@ -70,5 +60,14 @@ public class UnityServicesDemo : MonoBehaviour
         {
             Debug.Log("Player session could not be refreshed and expired.");
         };
+    }
+
+    void DoSomething()
+    {
+        Debug.Log(AuthenticationService.Instance.Profile);
+
+        Debug.Log($"Is SignedIn: {AuthenticationService.Instance.IsSignedIn}");
+        Debug.Log($"Is Authorized: {AuthenticationService.Instance.IsAuthorized}");
+        Debug.Log($"Is Expired: {AuthenticationService.Instance.IsExpired}");
     }
 }
